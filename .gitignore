@@ -1,0 +1,17 @@
+# Ignore everything
+*
+
+# But don't ignore these:
+!main.py
+!config.py
+!yolo.py
+!removeBG.py
+!orientation.py
+!utils.py
+!.gitignore
+!README.md
+
+# Keep the model file only
+!models/
+!models/best.pt
+
