@@ -4,6 +4,9 @@ from config import *
 from yolo import detect_objects
 from removeBG import remove_background, extract_largest_region
 from orientation import correct_orientation
+from tensorflow.keras.models import load_model
+
+model = load_model("models\orientation.keras")
 
 # Toggles to control optional saves
 SAVE_CROPPED = False
@@ -37,7 +40,7 @@ for filename in os.listdir(photos_folder):
         if SAVE_ALIGNED:
             cv2.imwrite(os.path.join(aligned_folder, crop_name), aligned)
 
-        fixed = correct_orientation(aligned)
+        fixed = correct_orientation(aligned, model)
         cv2.imwrite(os.path.join(final_folder, crop_name), fixed)
 
         print(f"✅ Saved: {os.path.join(final_folder, crop_name)}")

@@ -13,5 +13,8 @@
 
 # Keep the model file only
 !models/
-!models/best.pt
+!models/best.pt!
+!models/last.pt!
+!models/orientation.h5!
+!models/orientation.keras!
 
